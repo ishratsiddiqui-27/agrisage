@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "farmer": "F101 - Ramesh Rao",
+    "crop": "cotton",
+    "district": "Nizamabad",
+    "symptoms": "Yellowing leaves with dark bacterial spots, sudden leaf drop",
+    "image_url": "https://images.unsplash.com/photo-1592417817098-8f3d6ef23a81?w=400",
+    "summary": "Suspected bacterial leaf blight on flowering cotton; confidence 0.58",
+    "status": "New",
+    "agent_findings": [
+      { "agent": "disease", "prediction": "Bacterial Blight", "confidence": 0.58, "needs_expert_review": true },
+      { "agent": "weather", "prediction": "High humidity (75%) favoring fungal spread", "confidence": 0.95 }
+    ],
+    "created_at": "2026-11-13T08:30:00Z",
+    "expert_reply": null
+  },
+  {
+    "id": 2,
+    "farmer": "F102 - Anji Reddy",
+    "crop": "rice",
+    "district": "Karimnagar",
+    "symptoms": "Stem borer infestation; dead hearts visible in tillering stage",
+    "image_url": null,
+    "summary": "Yellow stem borer incidence in Paddy stage II",
+    "status": "Assigned",
+    "agent_findings": [
+      { "agent": "disease", "prediction": "Stem Borer", "confidence": 0.52, "needs_expert_review": true }
+    ],
+    "created_at": "2026-11-12T14:15:00Z",
+    "expert_reply": "Apply Cartap Hydrochloride 4G @ 10kg/acre in standing water."
+  },
+  {
+    "id": 3,
+    "farmer": "F103 - Venkatesh",
+    "crop": "chilli",
+    "district": "Khammam",
+    "symptoms": "Leaf curl and stunted growth due to thrips attack",
+    "image_url": null,
+    "summary": "Thrips damaged leaf curling in Chilli",
+    "status": "Resolved",
+    "agent_findings": [
+      { "agent": "disease", "prediction": "Chilli Leaf Curl Virus", "confidence": 0.78, "needs_expert_review": false }
+    ],
+    "created_at": "2026-11-11T10:00:00Z",
+    "expert_reply": "Spray Fipronil 5% SC @ 2ml/L water. Repeat after 10 days."
+  },
+  {
+    "id": 4,
+    "farmer": "F104 - Sammaiah",
+    "crop": "maize",
+    "district": "Warangal",
+    "symptoms": "Fall Armyworm egg masses on whorl leaves",
+    "image_url": null,
+    "summary": "Fall Armyworm early infestation",
+    "status": "New",
+    "agent_findings": [
+      { "agent": "disease", "prediction": "Fall Armyworm", "confidence": 0.55, "needs_expert_review": true }
+    ],
+    "created_at": "2026-11-13T06:20:00Z",
+    "expert_reply": null
+  },
+  {
+    "id": 5,
+    "farmer": "F105 - Laxman",
+    "crop": "groundnut",
+    "district": "Mahbubnagar",
+    "symptoms": "Tikka leaf spot - dark brown circular spots with yellow halo",
+    "image_url": null,
+    "summary": "Early Tikka Leaf Spot in Groundnut",
+    "status": "Assigned",
+    "agent_findings": [
+      { "agent": "disease", "prediction": "Tikka Leaf Spot", "confidence": 0.61, "needs_expert_review": true }
+    ],
+    "created_at": "2026-11-12T09:45:00Z",
+    "expert_reply": "Spray Mancozeb @ 2.5g/L."
+  },
+  {
+    "id": 6,
+    "farmer": "F106 - Buchiah",
+    "crop": "tomato",
+    "district": "Ranga Reddy",
+    "symptoms": "Early blight concentric rings on lower foliage",
+    "image_url": null,
+    "summary": "Tomato Early Blight",
+    "status": "Resolved",
+    "agent_findings": [],
+    "created_at": "2026-11-10T16:00:00Z",
+    "expert_reply": "Resolved with Chlorothalonil spray."
+  },
+  {
+    "id": 7,
+    "farmer": "F107 - Narsaiah",
+    "crop": "cotton",
+    "district": "Adilabad",
+    "symptoms": "Pink bollworm larvae detected inside opening bolls",
+    "image_url": null,
+    "summary": "Pink Bollworm threshold breached",
+    "status": "New",
+    "agent_findings": [
+      { "agent": "disease", "prediction": "Pink Bollworm", "confidence": 0.49, "needs_expert_review": true }
+    ],
+    "created_at": "2026-11-13T09:10:00Z",
+    "expert_reply": null
+  },
+  {
+    "id": 8,
+    "farmer": "F108 - Malliah",
+    "crop": "rice",
+    "district": "Nalgonda",
+    "symptoms": "Brown Plant Hopper damage - hopper burn patches",
+    "image_url": null,
+    "summary": "Hopper burn in low-lying Paddy plots",
+    "status": "New",
+    "agent_findings": [
+      { "agent": "disease", "prediction": "Brown Plant Hopper", "confidence": 0.57, "needs_expert_review": true }
+    ],
+    "created_at": "2026-11-13T07:00:00Z",
+    "expert_reply": null
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "transcript": "నా పత్తి చేనులో ఆకులు పసుపు రంగులోకి మారుతున్నాయి",
+  "reply_text": "మీ పత్తి ಬೆಳೆಯಲ್ಲಿ బాక్టీరియల్ ఆకు మచ్చల వ్యాధి లక్షణాలు కనిపిస్తున్నాయి. కాపర్ ఆక్సీక్లోరైడ్ 3 గ్రా/లీ నీటికి కలిపి పిచికారీ చేయండి.",
+  "reply_audio_base64": null,
+  "agents": [
+    {
+      "agent": "disease",
+      "prediction": "Bacterial Blight identified (confidence 58%)",
+      "confidence": 0.58,
+      "needs_expert_review": true,
+      "data": { "label": "bacterial_blight" }
+    },
+    {
+      "agent": "weather",
+      "prediction": "Temp 32°C, Rain 12mm in next 48h",
+      "confidence": 0.95,
+      "needs_expert_review": false,
+      "data": { "temp_c": 32, "humidity": 75 }
+    },
+    {
+      "agent": "irrigation",
+      "prediction": "Irrigation net requirement: 3.5 mm/day",
+      "confidence": 0.9,
+      "needs_expert_review": false,
+      "data": { "net_mm_day": 3.5 }
+    },
+    {
+      "agent": "yield",
+      "prediction": "Expected yield: 22.4 q/ha",
+      "confidence": 0.82,
+      "needs_expert_review": false,
+      "data": { "estimated_yield_q_ha": 22.4 }
+    },
+    {
+      "agent": "market",
+      "prediction": "Nizamabad Cotton Mandi: ₹7,250/q (+3.2%)",
+      "confidence": 0.88,
+      "needs_expert_review": false,
+      "data": { "modal_price": 7250 }
+    },
+    {
+      "agent": "advisory",
+      "prediction": "Integrated recommendation provided",
+      "confidence": 0.85,
+      "needs_expert_review": true,
+      "data": {}
+    }
+  ]
+}
