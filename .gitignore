@@ -1,85 +1,11 @@
-# Byte-compiled / optimized / DLL files
+.env
+.venv/
+venv/
 __pycache__/
 *.py[cod]
-*$py.class
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
-venv/
-.venv/
-env/
-ENV/
-
-# IDE / Editor
-.vscode/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .idea/
-*.swp
-*.swo
-.DS_Store
+.vscode/
 *.log
-
-# Environment variables (NEVER commit secrets)
-.env
-.env.local
-.env.development
-.env.production
-
-# Python-specific
-*.pyc
-*.pyo
-*.pyd
-.ipynb_checkpoints
-
-# ML / Model artifacts
-*.pt
-*.pth
-*.h5
-*.pkl
-*.joblib
-*.onnx
-ml/data/raw/
-ml/models/*.pkl
-ml/models/*.joblib
-
-# Uploads & runtime data
-uploads/
-*.sqlite3
-*.db
-*.sqlite
-agrisage.db
-data/db/
-
-# Frontend / Node
-node_modules/
-dist/
-build/
-*.tsbuildinfo
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-store/
-
-# Tailwind / Vite cache
-.vite/
-.turbo/
-
-# OS
-.DS_Store
-Thumbs.db

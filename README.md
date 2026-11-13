@@ -1,144 +1,171 @@
-# AgriSage AI - Multilingual Voice-First Agricultural Intelligence Platform
+# KisanConnect – AgriSage AI Backend
 
-**YUKTIK 2026 Hackathon | Problem Statement PS14**
+FastAPI backend for KisanConnect. It uses the existing Supabase tables:
 
-AgriSage AI is a voice-first, agent-driven advisory and diagnostic platform designed for smallholder farmers. Powered by specialized multi-agent systems, AgriSage AI provides real-time crop disease diagnosis, weather insights, precision irrigation planning, yield forecasting, and market intelligence in native regional languages.
+- `farmers`
+- `cases`
+- `conversations`
+- `messages`
+- `case_updates`
 
----
+Existing CRUD routes (`/farmers`, `/cases`, `/conversations`, `/messages`, `/case-updates`) are unchanged. The React Live-mode client uses the `/api` adapter.
 
-## 👥 Hackathon Team & Directory Ownership
+Map coordinates and a dedicated `agent_steps` table are **not** in production. See `migrations/001_agrisage.sql` (do not auto-apply). The adapter geocodes `farmers.location` at read time and stores agent steps as JSON in `case_updates.notes`.
 
-| Member | Name | Role / Directory | Key Responsibilities |
-|---|---|---|---|
-| **Member 1** | Ishrat (Lead) | `frontend/` (Farmer UI) | Voice UI, Chat interface, Image upload, Weather & Advisory UI cards |
-| **Member 2** | Backend Lead | `backend/` & `shared/` | FastAPI backend, SQLite/Supabase DB, Case management routes, API schemas |
-| **Member 3** | ML Lead | `ml/` | Crop recommendation, yield prediction, mandi price forecasting models |
-| **Member 4** | Vision Lead | `vision/` | Plant disease classification (MobileNetV2), leaf image preprocessing |
-| **Member 5** | Agent & Expert Lead | `agents/` & Expert Dashboard | Multi-agent orchestrator, Irrigation ETc engine, Voice integration, Expert Dashboard (`frontend/src/pages/ExpertDashboard.jsx`) |
+## 1. Install dependencies
 
-*Note: Members 1 and 5 share ownership of the Dashboard UI.*
+From the `backend` folder:
 
----
-
-## 📁 Repository Structure Map
-
-```
-agrisage/
-├── README.md                   # Project overview, team map, setup guide
-├── .gitignore                  # Git ignore definitions
-├── .env.example                # Sample environment variables
-├── CLAUDE.md                   # Project guidelines & AI context
-├── shared/                     # Shared Pydantic schemas & API specifications (Member 2)
-│   ├── schemas.md              # JSON schemas & API specifications
-│   └── schemas.py              # Shared Pydantic data models
-├── backend/                    # FastAPI app, SQLite database, routes (Member 2)
-│   ├── requirements.txt        # Full Python dependencies
-│   ├── main.py                 # FastAPI application entrypoint
-│   ├── database.py             # SQLAlchemy configuration
-│   ├── models.py               # ORM Database models
-│   └── routes/                 # Endpoint routers (farmers, cases, voice, agents)
-├── agents/                     # Multi-agent system & domain agents (Member 5)
-│   ├── orchestrator.py         # Multi-agent workflow runner & escalation logic
-│   ├── disease_agent.py        # Vision model wrapper agent
-│   ├── crop_agent.py           # ML crop recommendation wrapper agent
-│   ├── yield_agent.py          # ML yield prediction wrapper agent
-│   ├── market_agent.py         # ML market price wrapper agent
-│   ├── weather_agent.py        # Open-Meteo live weather agent
-│   ├── irrigation_agent.py     # ETc FAO-56 irrigation math engine
-│   ├── advisory_agent.py       # LLM synthesis advisory agent
-│   ├── language_agent.py       # Sarvam AI STT/TTS & translation agent
-│   └── data/                   # Crop calendar & Telangana district coordinates
-├── ml/                         # ML models & training scripts (Member 3)
-│   ├── preprocess.py           # Feature engineering & tabular data cleaning
-│   ├── crop_model.py           # Crop recommendation model trainer/predictor
-│   ├── yield_model.py          # Yield estimation model trainer/predictor
-│   ├── market_model.py         # Price trend model trainer/predictor
-│   ├── predict.py              # ML inference helper routines
-│   ├── data/raw/               # Raw datasets (Kaggle, Data.gov.in)
-│   └── models/                 # Saved joblib (.pkl) models
-├── vision/                     # Deep learning plant disease diagnosis (Member 4)
-│   ├── model.py                # MobileNetV2 architecture & weights loader
-│   ├── preprocess.py           # Image transformation & normalization
-│   ├── predict.py              # Plant disease inference & confidence scoring
-│   ├── routes.py               # Vision API router
-│   └── samples/                # Sample leaf diagnostic images
-├── mock/                       # Dummy JSON data for offline development & tests
-└── frontend/                   # React + Vite + Tailwind CSS app (Member 1 & 5)
-    ├── package.json            # Node.js dependencies
-    ├── vite.config.js          # Vite configuration
-    ├── .env.example            # Frontend environment variables
-    └── src/
-        ├── api/                # API client helper functions
-        ├── components/         # Reusable UI components
-        ├── pages/              # Main view pages (Farmer UI, Expert Dashboard, Case Detail)
-        ├── hooks/              # Custom React hooks (e.g. voice recorder)
-        └── mock/               # Local mock fallback datasets
-```
-
----
-
-## 🚀 How to Run the Project
-
-### Prerequisites
-- Python 3.10+
-- Node.js 18+ & npm
-
-### 1. Backend Setup
-```bash
-# Navigate to backend directory
-cd backend
-
-# Create virtual environment (optional but recommended)
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Linux/macOS:
-source venv/bin/activate
-
-# Install dependencies
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+```
 
-# Start FastAPI server
+## 2. Configure `.env`
+
+Copy `.env.example` to `.env`. Required:
+
+| Variable | Purpose |
+| --- | --- |
+| `SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_SECRET_KEY` | Backend-only service role / secret key |
+| `FRONTEND_URL` | CORS origin, for example `http://localhost:5173` |
+
+Optional LLM / STT:
+
+| Variable | Purpose |
+| --- | --- |
+| `LLM_PROVIDER` | `openai` (default) or `gemini` |
+| `STT_PROVIDER` | `openai` (default) |
+| `OPENAI_API_KEY` | Chat, vision, and Whisper |
+| `GEMINI_API_KEY` | Gemini chat / vision |
+| `AGENT_TIMEOUT_SECONDS` | Per-agent timeout (default 12) |
+
+Keep `SUPABASE_SECRET_KEY` in `backend/.env` only. Never send it to the frontend.
+
+If no LLM/STT key is set, agents still run and return **clearly labelled** `[placeholder — no API key configured]` results.
+
+## 3. Start the backend
+
+From the `backend` folder:
+
+```powershell
 uvicorn main:app --reload --port 8000
 ```
-Backend interactive docs: `http://localhost:8000/docs`  
-Health check: `http://localhost:8000/api/health`
 
-### 2. Frontend Setup
-```bash
-# Open a new terminal and navigate to frontend directory
-cd frontend
+- API: http://127.0.0.1:8000
+- Health: http://127.0.0.1:8000/health
+- Frontend health: http://127.0.0.1:8000/api/health
+- Supabase TLS check: http://127.0.0.1:8000/health/supabase
+- Swagger: http://127.0.0.1:8000/docs
 
-# Install dependencies
-npm install
+CORS allows `http://localhost:5173`, `http://127.0.0.1:5173`, and `FRONTEND_URL`.
 
-# Start development server
-npm run dev
+Set the Vite app to live mode: `VITE_USE_MOCK=false` and `VITE_API_URL=http://localhost:8000`.
+
+## 4. Frontend `/api` endpoints
+
+### `GET /api/health`
+
+```json
+{"status":"ok"}
 ```
-Frontend Web App: `http://localhost:5173`
 
----
+### `POST /api/text`
 
-## 🌿 Git Workflow & Rules
+```json
+{
+  "query": "Why are my cotton leaves turning yellow?",
+  "language": "en",
+  "farmer_id": "F101",
+  "crop": "Cotton"
+}
+```
 
-1. **Branching Strategy**:
-   - `main`: Production-ready checkpoint branch.
-   - Feature branches: `feature/member1-voice-ui`, `feature/member2-cases-api`, `feature/member3-ml-models`, `feature/member4-vision-model`, `feature/member5-agent-orchestrator`.
-2. **Directory Isolation Rule**:
-   - **ONLY edit files in your assigned directory.**
-   - Do NOT edit code in another member's directory without prior coordination.
-3. **Secrets Management**:
-   - **NEVER** commit `.env` files or API keys into git.
-   - Always copy `.env.example` to `.env` locally.
-4. **Pull Requests & Code Reviews**:
-   - Push your feature branch and open a PR into `main` at every scheduled hackathon checkpoint.
+Example response (fields the Farmer page uses):
 
----
+```json
+{
+  "case_id": "uuid",
+  "id": "uuid",
+  "farmer_id": "F101",
+  "crop": "Cotton",
+  "language": "en",
+  "transcript": "Why are my cotton leaves turning yellow?",
+  "answer": "Monitor the crop and follow the irrigation advice.",
+  "advisory": "Monitor the crop and follow the irrigation advice.",
+  "disease": {
+    "name": "Leaf spot",
+    "confidence": 0.81,
+    "confidence_pct": 81,
+    "symptoms": "...",
+    "treatment": "...",
+    "prevention": "...",
+    "severity": "medium"
+  },
+  "weather": {"current": {"temperature_c": 29, "condition": "Clear"}, "forecast": []},
+  "irrigation": {"recommendation": "...", "timing": "Early morning", "water_mm": 15},
+  "yield": {"outlook": "stable", "estimate": "...", "risk": "low"},
+  "status": "New",
+  "lat": 19.9975,
+  "lng": 73.7898
+}
+```
 
-## ⏱️ Hackathon Checkpoint Timeline
+### `POST /api/voice`
 
-- **Checkpoint 1 (Hour 0 - 4)**: Project Scaffolding & End-to-End Stub Verification (Done!)
-- **Checkpoint 2 (Hour 4 - 10)**: Core Domain Implementation (ML models trained, Vision model hooked up, Open-Meteo & ETc active, DB tables populated)
-- **Checkpoint 3 (Hour 10 - 16)**: Multi-Agent Orchestration & Voice API Integration (Sarvam AI / Gemini LLM connection)
-- **Checkpoint 4 (Hour 16 - 20)**: UI/UX Polish, Expert Dashboard escalation flow, Real-time feed testing
-- **Checkpoint 5 (Hour 20 - 24)**: Final end-to-end demo testing, slides preparation, video submission
+`multipart/form-data` fields: `audio`, `language`, `farmer_id`, `crop`. Audio: webm/wav/mp3/m4a, max 15 MB. Same response as `/api/text`, with `transcript` from STT (or a labelled placeholder).
+
+### `POST /api/image`
+
+`multipart/form-data` fields: `image`, `language`, `farmer_id`, `crop`. Images: jpg/png/webp, max 10 MB. Returns the Farmer/disease-card object (`disease_name`, `confidence` 0–1, `confidence_pct` 0–100, symptoms, treatment, prevention).
+
+### `GET /api/cases` and `GET /api/cases?status=New|Assigned|Resolved`
+
+Array of case objects (`id`, `status`, `farmer_id`, `farmer_name`, `crop`, `query`, `location`, `lat`/`lng`, `expert_reply`, `created_at`). Missing coordinates are `null`.
+
+### `GET /api/cases/{id}`
+
+One case object. `404` `{ "detail": "...", "code": "not_found" }`.
+
+### `PATCH /api/cases/{id}`
+
+```json
+{"status": "Assigned", "expert_reply": "Visit the field and confirm leaf curl."}
+```
+
+Status must be exactly `New`, `Assigned`, or `Resolved` (422 otherwise). Reply is stored in `messages` (role `expert`) and `case_updates`.
+
+### `GET /api/agent-activity/{case_id}`
+
+```json
+{
+  "case_id": "uuid",
+  "steps": [
+    {"agent": "Disease Agent", "status": "completed", "summary": "...", "timestamp": "2026-11-13T08:00:00+00:00"}
+  ]
+}
+```
+
+### `GET /health/supabase`
+
+Authenticated GET to `{SUPABASE_URL}/rest/v1/`. Certificate verification is never disabled.
+
+```json
+{"ok": true, "status_code": 200}
+```
+
+or `{"ok": false, "error_type": "...", "error": "..."}`.
+
+Errors use `{"detail": "...", "code": "..."}`.
+
+## 5. Original table routes
+
+Still available: `/farmers`, `/cases`, `/conversations`, `/messages`, `/case-updates`, `GET /health`. See Swagger.
+
+## 6. Tests
+
+```powershell
+pytest -q
+```
