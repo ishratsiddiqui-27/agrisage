@@ -1,4 +1,4 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 import { useLanguage } from '../context/LanguageContext'
 import { Link } from 'react-router-dom'
 export default function CaseDetail() {
@@ -6,14 +6,14 @@ export default function CaseDetail() {
   return (
     <div className="p-8 bg-white rounded-lg shadow-sm">
       <h1 className="text-3xl font-bold text-green-800 mb-4">
-        {lang === 'te' && 'కేసు ਵிவరణ'}
-        {lang === 'hi' && 'केस विवरण'}
+        {lang === 'te' && 'à°•à±‡à°¸à± à¨µà®¿à®µà°°à°£'}
+        {lang === 'hi' && 'à¤•à¥‡à¤¸ à¤µà¤¿à¤µà¤°à¤£'}
         {lang === 'en' && 'Case Detail'}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <p className="font-medium text-gray-600">Farmer</p>
-          <p className="mt-1">{lang === 'te' && 'F101 - Ramesh Rao'} {lang === 'hi' && 'F101 - रमेश राव'} {lang === 'en' && 'Farmer F101'}</p>
+          <p className="mt-1">{lang === 'te' && 'F101 - Ramesh Rao'} {lang === 'hi' && 'F101 - à¤°à¤®à¥‡à¤¶ à¤°à¤¾à¤µ'} {lang === 'en' && 'Farmer F101'}</p>
         </div>
         <div>
           <p className="font-medium text-gray-600">Crop</p>
@@ -27,7 +27,7 @@ export default function CaseDetail() {
       <div className="mt-6">
         <h2 className="text-xl font-medium text-gray-800">
           {lang === 'te' && 'Agent Findings'}
-          {lang === 'hi' && 'एजेंट निष्कर्ष'}
+          {lang === 'hi' && 'à¤à¤œà¥‡à¤‚à¤Ÿ à¤¨à¤¿à¤·à¥à¤•à¤°à¥à¤·'}
           {lang === 'en' && 'Agent Findings'}
         </h2>
         <ul className="list-disc pl-5 space-y-1">
@@ -44,7 +44,7 @@ export default function CaseDetail() {
             <span className="font-semibold text-amber-700">Yield:</span> 22.4 q/ha
           </li>
           <li>
-            <span className="font-semibold text-emerald-700">Market:</span> ₹7,250/q
+            <span className="font-semibold text-emerald-700">Market:</span> â‚¹7,250/q
           </li>
         </ul>
       </div>

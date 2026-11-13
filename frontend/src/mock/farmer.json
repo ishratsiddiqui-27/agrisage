@@ -1,15 +1,16 @@
-{
+﻿{
   "farmer_id": "F101",
-  "name": "Ramesh Rao",
+  "name": "Ramesh",
+  "location": "Nizamabad",
   "district": "Nizamabad",
   "language": "te",
-  "crop": "cotton",
+  "crop": "Cotton",
   "sowing_date": "2026-06-15",
-  "growth_stage": "flowering",
+  "growth_stage": "Flowering",
   "soil": {
-    "nitrogen": 28,
-    "phosphorus": 14,
-    "potassium": 240,
-    "ph": 6.4
+    "nitrogen": 80,
+    "phosphorus": 45,
+    "potassium": 40,
+    "ph": 6.8
   }
 }

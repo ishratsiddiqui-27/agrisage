@@ -1,4 +1,4 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 import { Link, useLocation } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useState } from 'react'
@@ -41,7 +41,7 @@ export default function Navbar() {
                 <option key={code} value={code}>{info.native}</option>
               ))}
             </select>
-            <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-green-600">▾</span>
+            <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-green-600">â–¾</span>
           </div>
 
           {/* Mobile hamburger */}
@@ -53,7 +53,7 @@ export default function Navbar() {
               aria-label="Toggle menu"
             >
               <span className="sr-only">Open menu</span>
-              {open ? '✕' : '☰'}
+              {open ? 'âœ•' : 'â˜°'}
             </button>
           </div>
         </div>

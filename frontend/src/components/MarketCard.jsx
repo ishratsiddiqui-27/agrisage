@@ -1,4 +1,4 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 export default function MarketCard({ data }) {
   return (
     <div className="p-4 border rounded bg-emerald-50">

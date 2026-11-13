@@ -1,24 +1,30 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+﻿1	# Logs
+2	logs
+3	*.log
+4	npm-debug.log*
+5	yarn-debug.log*
+6	yarn-error.log*
+7	pnpm-debug.log*
+8	lerna-debug.log*
+9
+10	node_modules
+11	dist
+12	dist-ssr
+13	*.local
+14
+15	# Environment
+16	.env
+17	.env.*
+18	!.env.example
+19
+20	# Editor directories and files
+21	.vscode/*
+22	!.vscode/extensions.json
+23	.idea
+24	.DS_Store
+25	*.suo
+26	*.ntvs*
+27	*.njsproj
+28	*.sln
+29	*.sw?
+30

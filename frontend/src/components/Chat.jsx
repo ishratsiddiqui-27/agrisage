@@ -1,4 +1,4 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 import { useState } from 'react'
 import { sendText } from '../api/client'
 import { useLanguage } from '../context/LanguageContext'

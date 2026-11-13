@@ -1,0 +1,70 @@
+﻿[
+  {
+    "agent": "disease",
+    "prediction": "Bacterial Blight detected on Cotton leaf",
+    "confidence": 0.82,
+    "needs_expert_review": false,
+    "data": {
+      "label": "Bacterial Blight",
+      "confidence": 0.82
+    }
+  },
+  {
+    "agent": "weather",
+    "prediction": "Temp 31Â°C, Humidity 78%, 15mm rain expected over next 3 days",
+    "confidence": 0.95,
+    "needs_expert_review": false,
+    "data": {
+      "temp": 31,
+      "humidity": 78,
+      "rainfall_mm": 15,
+      "risk_alert": "Moderate fungal risk due to high humidity"
+    }
+  },
+  {
+    "agent": "irrigation",
+    "prediction": "Apply 12mm irrigation today",
+    "confidence": 0.90,
+    "needs_expert_review": false,
+    "data": {
+      "etc_mm_per_day": 4.8,
+      "rainfall_mm": 5.0,
+      "recommended_mm": 12.0,
+      "advice": "Water during early morning to reduce evaporation loss."
+    }
+  },
+  {
+    "agent": "yield",
+    "prediction": "Predicted yield: 2.4 tonnes/ha",
+    "confidence": 0.85,
+    "needs_expert_review": false,
+    "data": {
+      "predicted_tonnes_per_ha": 2.4,
+      "historical_avg": 2.1
+    }
+  },
+  {
+    "agent": "market",
+    "prediction": "Cotton modal price â‚¹7,400/q (Up trend)",
+    "confidence": 0.88,
+    "needs_expert_review": false,
+    "data": {
+      "latest_modal_price": 7400,
+      "trend": "up",
+      "nearby_markets": [
+        "Nizamabad Mandi",
+        "Kamareddy Market",
+        "Armoor APMC"
+      ]
+    }
+  },
+  {
+    "agent": "advisory",
+    "prediction": "Apply copper-based fungicide and maintain recommended irrigation schedule.",
+    "confidence": 0.90,
+    "needs_expert_review": false,
+    "data": {
+      "advice_text": "Apply copper-based fungicide and maintain recommended irrigation schedule."
+    }
+  }
+]

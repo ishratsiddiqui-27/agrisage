@@ -1,10 +1,10 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 const LANGUAGES = {
   en: { label: 'English', native: 'English' },
-  te: { label: 'Telugu', native: 'తెలుగు' },
-  hi: { label: 'Hindi', native: 'हिन्दी' },
+  te: { label: 'Telugu', native: 'à°¤à±†à°²à±à°—à±' },
+  hi: { label: 'Hindi', native: 'à¤¹à¤¿à¤¨à¥à¤¦à¥€' },
 }
 
 const LanguageContext = createContext()

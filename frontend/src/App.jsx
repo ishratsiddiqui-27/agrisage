@@ -1,4 +1,4 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/Navbar'

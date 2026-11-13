@@ -1,0 +1,10 @@
+[
+  { "district": "Nizamabad", "lat": 18.6725, "lon": 78.1023 },
+  { "district": "Warangal", "lat": 17.9689, "lon": 79.5941 },
+  { "district": "Karimnagar", "lat": 18.4386, "lon": 79.1288 },
+  { "district": "Khammam", "lat": 17.2473, "lon": 80.1514 },
+  { "district": "Adilabad", "lat": 19.6667, "lon": 78.5333 },
+  { "district": "Medak", "lat": 18.0384, "lon": 78.2631 },
+  { "district": "Nalgonda", "lat": 17.0503, "lon": 79.2672 },
+  { "district": "Mahabubnagar", "lat": 16.7488, "lon": 77.9840 }
+]

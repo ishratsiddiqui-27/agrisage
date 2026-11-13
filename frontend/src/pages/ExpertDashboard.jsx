@@ -1,4 +1,4 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 import { useLanguage } from '../context/LanguageContext'
 import { Link } from 'react-router-dom'
 import CaseTable from '../components/CaseTable'
@@ -9,7 +9,7 @@ export default function ExpertDashboard({ agents = [] }) {
     <div className="p-8 bg-white rounded-lg shadow-sm">
       <h1 className="text-3xl font-bold text-green-800 mb-4">
         {lang === 'te' && 'Experts Dashboard'}
-        {lang === 'hi' && 'एक्सपर्ट डैशबोर्ड'}
+        {lang === 'hi' && 'à¤à¤•à¥à¤¸à¤ªà¤°à¥à¤Ÿ à¤¡à¥ˆà¤¶à¤¬à¥‹à¤°à¥à¤¡'}
         {lang === 'en' && 'Expert Dashboard'}
       </h1>
       <p className="text-gray-600 mb-4">
@@ -19,7 +19,7 @@ export default function ExpertDashboard({ agents = [] }) {
         <div className="border rounded bg-gray-50 p-4">
           <h3 className="font-medium mb-2">
             {lang === 'te' && 'All Cases'}
-            {lang === 'hi' && 'सभी केस'}
+            {lang === 'hi' && 'à¤¸à¤­à¥€ à¤•à¥‡à¤¸'}
             {lang === 'en' && 'All Cases'}
           </h3>
           <CaseTable cases={[
@@ -33,7 +33,7 @@ export default function ExpertDashboard({ agents = [] }) {
         <div className="border rounded bg-gray-50 p-4">
           <h3 className="font-medium mb-2">
             {lang === 'te' && 'Agent Activity Feed'}
-            {lang === 'hi' && 'एजेंट गतिविधि फ़ीड'}
+            {lang === 'hi' && 'à¤à¤œà¥‡à¤‚à¤Ÿ à¤—à¤¤à¤¿à¤µà¤¿à¤§à¤¿ à¤«à¤¼à¥€à¤¡'}
             {lang === 'en' && 'Agent Activity Feed'}
           </h3>
           <div>

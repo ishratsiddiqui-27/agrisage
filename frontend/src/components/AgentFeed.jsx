@@ -1,4 +1,4 @@
-// Owner: Member 1 - Ishrat
+﻿// Owner: Member 1 - 
 export default function AgentFeed({ agents = [] }) {
   return (
     <div className="space-y-2">

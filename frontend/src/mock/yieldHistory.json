@@ -1,0 +1,9 @@
+[
+  { "year": 2020, "tonnes_per_ha": 2.0 },
+  { "year": 2021, "tonnes_per_ha": 2.1 },
+  { "year": 2022, "tonnes_per_ha": 1.9 },
+  { "year": 2023, "tonnes_per_ha": 2.2 },
+  { "year": 2024, "tonnes_per_ha": 2.1 },
+  { "year": 2025, "tonnes_per_ha": 2.3 },
+  { "year": 2026, "tonnes_per_ha": 2.4 }
+]
