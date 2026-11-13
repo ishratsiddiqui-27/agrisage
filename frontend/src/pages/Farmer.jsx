@@ -11,6 +11,7 @@ import FarmerForm from '../components/FarmerForm'
 import GrowthStageCard from '../components/GrowthStageCard'
 import ErrorBoundary from '../components/ErrorBoundary'
 import VoiceCall from '../components/VoiceCall'
+import ImageUpload from '../components/ImageUpload'
 export default function Farmer() {
   const [reply, setReply] = useState(null)
   const { profile, setProfile, loading, error, fetchInsights } = useFarmer()
@@ -38,10 +39,11 @@ export default function Farmer() {
     <VoiceCall onExchange={handleReply} />
   </ErrorBoundary>
 </div>
-                {/* ImageUpload goes here (Step 5) */}
-                <div className="border-2 border-dashed border-green-300 rounded-xl p-3 text-center text-sm text-green-500 mb-3">
-                  ImageUpload goes here (Step 5)
-                </div>
+<div className="mb-3">
+     <ErrorBoundary>
+       <ImageUpload onResult={handleReply} />
+     </ErrorBoundary>
+   </div>
                 <ErrorBoundary>
                   <Chat onReply={handleReply} />
                 </ErrorBoundary>
