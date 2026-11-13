@@ -5,6 +5,9 @@ import { useParams, Link } from 'react-router-dom'
 import { getCases, updateCase } from '../api/client'
 import { StatusBadge, farmerName, formatDate } from '../components/CaseTable'
 import ErrorBoundary from '../components/ErrorBoundary'
+import AgentFeed from '../components/AgentFeed'
+import YieldCard from '../components/YieldCard'
+import MarketCard from '../components/MarketCard'
 
 // One card per agent result
 function FindingCard({ f }) {
@@ -180,7 +183,11 @@ export default function CaseDetail() {
                   )}
                 </div>
               </div>
-
+              <div className="mt-6">
+     <ErrorBoundary>
+       <AgentFeed findings={findings} runKey={id} />
+     </ErrorBoundary>
+   </div>
               {/* Agent findings */}
               <h2 className="mb-3 mt-6 text-lg font-semibold text-green-800">AI agent findings</h2>
               {findings.length ? (
@@ -192,7 +199,14 @@ export default function CaseDetail() {
               ) : (
                 <p className="rounded-xl bg-white p-4 text-gray-500">No agent findings recorded.</p>
               )}
-
+   <div className="mt-4 grid gap-4 md:grid-cols-2">
+     <ErrorBoundary>
+       <YieldCard data={findings} />
+     </ErrorBoundary>
+     <ErrorBoundary>
+       <MarketCard data={findings} />
+     </ErrorBoundary>
+   </div>
               {/* Expert action */}
               <div className="mt-6 rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
                 <h2 className="mb-3 text-lg font-semibold text-green-800">Expert response</h2>

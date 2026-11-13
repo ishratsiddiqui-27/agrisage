@@ -12,14 +12,19 @@ import GrowthStageCard from '../components/GrowthStageCard'
 import ErrorBoundary from '../components/ErrorBoundary'
 import VoiceCall from '../components/VoiceCall'
 import ImageUpload from '../components/ImageUpload'
+import AgentFeed from '../components/AgentFeed'
 export default function Farmer() {
   const [reply, setReply] = useState(null)
+  const [runs, setRuns] = useState(0)
   const { profile, setProfile, loading, error, fetchInsights } = useFarmer()
 
   // Pick agent outputs from the reply; fall back to the agentResponses mock.
   const agents = (reply && reply.agents && reply.agents.length) ? reply.agents : null
 
-  const handleReply = (newReply) => setReply(newReply)
+  const handleReply = (newReply) => {
+    setReply(newReply)
+    setRuns((r) => r + 1)
+  }
 
   const handleFetch = async () => {
     await fetchInsights(profile)
@@ -75,7 +80,9 @@ export default function Farmer() {
                   </div>
                 </div>
               </div>
-
+              <ErrorBoundary>
+     <AgentFeed findings={agents} runKey={runs} />
+   </ErrorBoundary>
               <div className="flex flex-col gap-3">
                 <ErrorBoundary><GrowthStageCard farmer={profile} /></ErrorBoundary>
                 <ErrorBoundary><WeatherCard data={agents} /></ErrorBoundary>
