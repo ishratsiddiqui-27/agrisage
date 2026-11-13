@@ -115,9 +115,11 @@ export default function ExpertDashboard() {
           )}
 
           {loading ? (
-            <div className="rounded-2xl border border-green-100 bg-white p-8 text-center text-gray-500">
-              Loading cases...
-            </div>
+            <div className="space-y-3 rounded-2xl border border-green-100 bg-white p-5">
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="h-10 animate-pulse rounded-lg bg-gray-100" />
+            ))}
+          </div>
           ) : (
             <CaseTable cases={filtered} />
           )}
