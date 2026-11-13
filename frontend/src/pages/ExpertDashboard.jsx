@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { getCases } from '../api/client'
 import CaseTable from '../components/CaseTable'
 import ErrorBoundary from '../components/ErrorBoundary'
-
+import RegionMap from '../components/RegionMap'
 const sameStatus = (c, s) => String(c?.status || '').toLowerCase() === s.toLowerCase()
 
 export default function ExpertDashboard() {
@@ -105,7 +105,11 @@ export default function ExpertDashboard() {
               </select>
             </label>
           </div>
-
+          <div className="mb-6">
+     <ErrorBoundary>
+       <RegionMap cases={filtered} />
+     </ErrorBoundary>
+   </div>
           {error && (
             <div className="mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</div>
           )}
