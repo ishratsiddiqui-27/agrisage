@@ -1,4 +1,4 @@
-# AgriSage AI Shared Schemas
+﻿# AgriSage AI Shared Schemas
 
 ## 1. Farmer Input JSON
 Sent from frontend to backend on every query (voice/text/image).
@@ -88,7 +88,7 @@ Created when `needs_expert_review=true` from any agent.
 }
 ```
 
-Status values: `New` → `Assigned` → `Resolved`
+Status values: `New` â†’ `Assigned` â†’ `Resolved`
 
 ## 5. API Endpoints
 

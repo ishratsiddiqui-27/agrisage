@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgriSage AI - SQLAlchemy Database Setup
 Owner: Member 2 (Backend Lead)
 

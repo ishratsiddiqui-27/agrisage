@@ -1,4 +1,4 @@
-# AgriSage AI Backend Dependencies
+﻿# AgriSage AI Backend Dependencies
 # Owner: Member 2 (Backend Lead)
 
 # Web framework & server

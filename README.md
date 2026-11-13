@@ -1,4 +1,4 @@
-# AgriSage AI - Multilingual Voice-First Agricultural Intelligence Platform
+﻿# AgriSage AI - Multilingual Voice-First Agricultural Intelligence Platform
 
 **YUKTIK 2026 Hackathon | Problem Statement PS14**
 
@@ -6,11 +6,11 @@ AgriSage AI is a voice-first, agent-driven advisory and diagnostic platform desi
 
 ---
 
-## 👥 Hackathon Team & Directory Ownership
+## ðŸ‘¥ Hackathon Team & Directory Ownership
 
 | Member | Name | Role / Directory | Key Responsibilities |
 |---|---|---|---|
-| **Member 1** | Ishrat (Lead) | `frontend/` (Farmer UI) | Voice UI, Chat interface, Image upload, Weather & Advisory UI cards |
+| **Member 1** |  (Lead) | `frontend/` (Farmer UI) | Voice UI, Chat interface, Image upload, Weather & Advisory UI cards |
 | **Member 2** | Backend Lead | `backend/` & `shared/` | FastAPI backend, SQLite/Supabase DB, Case management routes, API schemas |
 | **Member 3** | ML Lead | `ml/` | Crop recommendation, yield prediction, mandi price forecasting models |
 | **Member 4** | Vision Lead | `vision/` | Plant disease classification (MobileNetV2), leaf image preprocessing |
@@ -20,64 +20,64 @@ AgriSage AI is a voice-first, agent-driven advisory and diagnostic platform desi
 
 ---
 
-## 📁 Repository Structure Map
+## ðŸ“ Repository Structure Map
 
 ```
 agrisage/
-├── README.md                   # Project overview, team map, setup guide
-├── .gitignore                  # Git ignore definitions
-├── .env.example                # Sample environment variables
-├── CLAUDE.md                   # Project guidelines & AI context
-├── shared/                     # Shared Pydantic schemas & API specifications (Member 2)
-│   ├── schemas.md              # JSON schemas & API specifications
-│   └── schemas.py              # Shared Pydantic data models
-├── backend/                    # FastAPI app, SQLite database, routes (Member 2)
-│   ├── requirements.txt        # Full Python dependencies
-│   ├── main.py                 # FastAPI application entrypoint
-│   ├── database.py             # SQLAlchemy configuration
-│   ├── models.py               # ORM Database models
-│   └── routes/                 # Endpoint routers (farmers, cases, voice, agents)
-├── agents/                     # Multi-agent system & domain agents (Member 5)
-│   ├── orchestrator.py         # Multi-agent workflow runner & escalation logic
-│   ├── disease_agent.py        # Vision model wrapper agent
-│   ├── crop_agent.py           # ML crop recommendation wrapper agent
-│   ├── yield_agent.py          # ML yield prediction wrapper agent
-│   ├── market_agent.py         # ML market price wrapper agent
-│   ├── weather_agent.py        # Open-Meteo live weather agent
-│   ├── irrigation_agent.py     # ETc FAO-56 irrigation math engine
-│   ├── advisory_agent.py       # LLM synthesis advisory agent
-│   ├── language_agent.py       # Sarvam AI STT/TTS & translation agent
-│   └── data/                   # Crop calendar & Telangana district coordinates
-├── ml/                         # ML models & training scripts (Member 3)
-│   ├── preprocess.py           # Feature engineering & tabular data cleaning
-│   ├── crop_model.py           # Crop recommendation model trainer/predictor
-│   ├── yield_model.py          # Yield estimation model trainer/predictor
-│   ├── market_model.py         # Price trend model trainer/predictor
-│   ├── predict.py              # ML inference helper routines
-│   ├── data/raw/               # Raw datasets (Kaggle, Data.gov.in)
-│   └── models/                 # Saved joblib (.pkl) models
-├── vision/                     # Deep learning plant disease diagnosis (Member 4)
-│   ├── model.py                # MobileNetV2 architecture & weights loader
-│   ├── preprocess.py           # Image transformation & normalization
-│   ├── predict.py              # Plant disease inference & confidence scoring
-│   ├── routes.py               # Vision API router
-│   └── samples/                # Sample leaf diagnostic images
-├── mock/                       # Dummy JSON data for offline development & tests
-└── frontend/                   # React + Vite + Tailwind CSS app (Member 1 & 5)
-    ├── package.json            # Node.js dependencies
-    ├── vite.config.js          # Vite configuration
-    ├── .env.example            # Frontend environment variables
-    └── src/
-        ├── api/                # API client helper functions
-        ├── components/         # Reusable UI components
-        ├── pages/              # Main view pages (Farmer UI, Expert Dashboard, Case Detail)
-        ├── hooks/              # Custom React hooks (e.g. voice recorder)
-        └── mock/               # Local mock fallback datasets
+â”œâ”€â”€ README.md                   # Project overview, team map, setup guide
+â”œâ”€â”€ .gitignore                  # Git ignore definitions
+â”œâ”€â”€ .env.example                # Sample environment variables
+â”œâ”€â”€ CLAUDE.md                   # Project guidelines & AI context
+â”œâ”€â”€ shared/                     # Shared Pydantic schemas & API specifications (Member 2)
+â”‚   â”œâ”€â”€ schemas.md              # JSON schemas & API specifications
+â”‚   â””â”€â”€ schemas.py              # Shared Pydantic data models
+â”œâ”€â”€ backend/                    # FastAPI app, SQLite database, routes (Member 2)
+â”‚   â”œâ”€â”€ requirements.txt        # Full Python dependencies
+â”‚   â”œâ”€â”€ main.py                 # FastAPI application entrypoint
+â”‚   â”œâ”€â”€ database.py             # SQLAlchemy configuration
+â”‚   â”œâ”€â”€ models.py               # ORM Database models
+â”‚   â””â”€â”€ routes/                 # Endpoint routers (farmers, cases, voice, agents)
+â”œâ”€â”€ agents/                     # Multi-agent system & domain agents (Member 5)
+â”‚   â”œâ”€â”€ orchestrator.py         # Multi-agent workflow runner & escalation logic
+â”‚   â”œâ”€â”€ disease_agent.py        # Vision model wrapper agent
+â”‚   â”œâ”€â”€ crop_agent.py           # ML crop recommendation wrapper agent
+â”‚   â”œâ”€â”€ yield_agent.py          # ML yield prediction wrapper agent
+â”‚   â”œâ”€â”€ market_agent.py         # ML market price wrapper agent
+â”‚   â”œâ”€â”€ weather_agent.py        # Open-Meteo live weather agent
+â”‚   â”œâ”€â”€ irrigation_agent.py     # ETc FAO-56 irrigation math engine
+â”‚   â”œâ”€â”€ advisory_agent.py       # LLM synthesis advisory agent
+â”‚   â”œâ”€â”€ language_agent.py       # Sarvam AI STT/TTS & translation agent
+â”‚   â””â”€â”€ data/                   # Crop calendar & Telangana district coordinates
+â”œâ”€â”€ ml/                         # ML models & training scripts (Member 3)
+â”‚   â”œâ”€â”€ preprocess.py           # Feature engineering & tabular data cleaning
+â”‚   â”œâ”€â”€ crop_model.py           # Crop recommendation model trainer/predictor
+â”‚   â”œâ”€â”€ yield_model.py          # Yield estimation model trainer/predictor
+â”‚   â”œâ”€â”€ market_model.py         # Price trend model trainer/predictor
+â”‚   â”œâ”€â”€ predict.py              # ML inference helper routines
+â”‚   â”œâ”€â”€ data/raw/               # Raw datasets (Kaggle, Data.gov.in)
+â”‚   â””â”€â”€ models/                 # Saved joblib (.pkl) models
+â”œâ”€â”€ vision/                     # Deep learning plant disease diagnosis (Member 4)
+â”‚   â”œâ”€â”€ model.py                # MobileNetV2 architecture & weights loader
+â”‚   â”œâ”€â”€ preprocess.py           # Image transformation & normalization
+â”‚   â”œâ”€â”€ predict.py              # Plant disease inference & confidence scoring
+â”‚   â”œâ”€â”€ routes.py               # Vision API router
+â”‚   â””â”€â”€ samples/                # Sample leaf diagnostic images
+â”œâ”€â”€ mock/                       # Dummy JSON data for offline development & tests
+â””â”€â”€ frontend/                   # React + Vite + Tailwind CSS app (Member 1 & 5)
+    â”œâ”€â”€ package.json            # Node.js dependencies
+    â”œâ”€â”€ vite.config.js          # Vite configuration
+    â”œâ”€â”€ .env.example            # Frontend environment variables
+    â””â”€â”€ src/
+        â”œâ”€â”€ api/                # API client helper functions
+        â”œâ”€â”€ components/         # Reusable UI components
+        â”œâ”€â”€ pages/              # Main view pages (Farmer UI, Expert Dashboard, Case Detail)
+        â”œâ”€â”€ hooks/              # Custom React hooks (e.g. voice recorder)
+        â””â”€â”€ mock/               # Local mock fallback datasets
 ```
 
 ---
 
-## 🚀 How to Run the Project
+## ðŸš€ How to Run the Project
 
 ### Prerequisites
 - Python 3.10+
@@ -119,7 +119,7 @@ Frontend Web App: `http://localhost:5173`
 
 ---
 
-## 🌿 Git Workflow & Rules
+## ðŸŒ¿ Git Workflow & Rules
 
 1. **Branching Strategy**:
    - `main`: Production-ready checkpoint branch.
@@ -135,7 +135,7 @@ Frontend Web App: `http://localhost:5173`
 
 ---
 
-## ⏱️ Hackathon Checkpoint Timeline
+## â±ï¸ Hackathon Checkpoint Timeline
 
 - **Checkpoint 1 (Hour 0 - 4)**: Project Scaffolding & End-to-End Stub Verification (Done!)
 - **Checkpoint 2 (Hour 4 - 10)**: Core Domain Implementation (ML models trained, Vision model hooked up, Open-Meteo & ETc active, DB tables populated)

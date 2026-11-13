@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgriSage AI - Shared Pydantic Schemas
 Owner: Member 2 (Backend Lead)
 

@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgriSage AI - FastAPI Application Entry Point
 Owner: Member 2 (Backend Lead)
 

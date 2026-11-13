@@ -1,4 +1,4 @@
-"""
+﻿"""
 AgriSage AI - Farmer Profile Routes
 Owner: Member 2 (Backend Lead)
 

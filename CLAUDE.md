@@ -1,7 +1,7 @@
-# AgriSage AI - Hackathon Project Context
+﻿# AgriSage AI - Hackathon Project Context
 
 ## Project Overview
-AgriSage AI is a multilingual, voice-first agricultural advisory platform for the YUKTIK 2026 Hackathon (PS14). It uses a team of cooperating AI agents to diagnose diseases, forecast weather, plan irrigation, estimate yields, and provide market intelligence — all in regional Indian languages.
+AgriSage AI is a multilingual, voice-first agricultural advisory platform for the YUKTIK 2026 Hackathon (PS14). It uses a team of cooperating AI agents to diagnose diseases, forecast weather, plan irrigation, estimate yields, and provide market intelligence â€” all in regional Indian languages.
 
 ## Tech Stack
 - **Backend**: Python 3.10+, FastAPI, SQLAlchemy, Pydantic, SQLite (local) / Supabase (prod)
@@ -14,7 +14,7 @@ AgriSage AI is a multilingual, voice-first agricultural advisory platform for th
 ## Folder Ownership
 | Member | Name | Directory | Scope |
 |---|---|---|---|
-| 1 | Ishrat | `frontend/` | Farmer UI, Voice UI, Chat, all cards, CaseTable, RegionMap |
+| 1 |  | `frontend/` | Farmer UI, Voice UI, Chat, all cards, CaseTable, RegionMap |
 | 2 | Backend Lead | `backend/`, `shared/` | FastAPI app, DB, routes, schemas |
 | 3 | ML Lead | `ml/` | Crop, yield, market models + training scripts |
 | 4 | Vision Lead | `vision/` | Plant disease classification (MobileNetV2) |
