@@ -1,6 +1,6 @@
-﻿// Owner: Member 1 - 
+﻿// Owner: Member 1
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { LanguageProvider } from './context/LanguageContext'
+import { FarmerProvider } from './context/FarmerContext'
 import Navbar from './components/Navbar'
 import Farmer from './pages/Farmer'
 import ExpertDashboard from './pages/ExpertDashboard'
@@ -8,7 +8,7 @@ import CaseDetail from './pages/CaseDetail'
 
 export default function App() {
   return (
-    <LanguageProvider>
+    <FarmerProvider>
       <BrowserRouter>
         <div className="min-h-screen bg-gray-50">
           <Navbar />
@@ -21,6 +21,6 @@ export default function App() {
           </main>
         </div>
       </BrowserRouter>
-    </LanguageProvider>
+    </FarmerProvider>
   )
 }

@@ -1,14 +1,12 @@
 ﻿// Owner: Member 1 - 
 import { useState } from 'react'
-import { sendVoice, uploadImage } from '../api/client'
-import { useLanguage } from '../context/LanguageContext'
+import { uploadImage } from '../api/client'
 
 export default function VoiceCall() {
-  const { lang } = useLanguage()
   const [response, setResponse] = useState(null)
 
   const handleUpload = async (file) => {
-    const res = await uploadImage(file, lang, 'F101', 'cotton')
+    const res = await uploadImage(file, 'en', 'F101', 'cotton')
     setResponse(res)
   }
 

@@ -1,17 +1,15 @@
 ﻿// Owner: Member 1 - 
 import { useState } from 'react'
 import { uploadImage } from '../api/client'
-import { useLanguage } from '../context/LanguageContext'
 
 export default function ImageUpload({ onUploaded }) {
-  const { lang } = useLanguage()
   const [loading, setLoading] = useState(false)
 
   const handleChange = async (e) => {
     const file = e.target.files[0]
     if (!file) return
     setLoading(true)
-    const res = await uploadImage(file, lang, 'F101', 'cotton')
+    const res = await uploadImage(file, 'en', 'F101', 'cotton')
     setLoading(false)
     if (onUploaded) onUploaded(res)
   }

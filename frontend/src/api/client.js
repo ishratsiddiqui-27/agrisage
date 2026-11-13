@@ -27,7 +27,7 @@ export async function checkHealth() {
   return _req('GET', '/api/health')
 }
 
-export async function sendVoice(audioBlob, language, farmerId, crop) {
+export async function sendVoice(audioBlob, language = 'en', farmerId, crop) {
   if (USE_MOCK) {
     await delay(getMockDelay())
     return mock.voiceResponse
@@ -42,7 +42,7 @@ export async function sendVoice(audioBlob, language, farmerId, crop) {
   return res.json()
 }
 
-export async function sendText(query, language, farmerId, crop) {
+export async function sendText(query, language = 'en', farmerId, crop) {
   if (USE_MOCK) {
     await delay(getMockDelay())
     return { ...mock.voiceResponse, transcript: query }
@@ -50,7 +50,7 @@ export async function sendText(query, language, farmerId, crop) {
   return _req('POST', '/api/text', { query, language, farmer_id: farmerId, crop })
 }
 
-export async function uploadImage(imageFile, language, farmerId, crop) {
+export async function uploadImage(imageFile, language = 'en', farmerId, crop) {
   if (USE_MOCK) {
     await delay(getMockDelay())
     return mock.voiceResponse

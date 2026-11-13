@@ -11,7 +11,7 @@
   },
   {
     "agent": "weather",
-    "prediction": "Temp 31Â°C, Humidity 78%, 15mm rain expected over next 3 days",
+    "prediction": "Temperature 31 C, humidity 78%, 15 mm rain expected over the next 3 days",
     "confidence": 0.95,
     "needs_expert_review": false,
     "data": {
@@ -45,7 +45,7 @@
   },
   {
     "agent": "market",
-    "prediction": "Cotton modal price â‚¹7,400/q (Up trend)",
+    "prediction": "Cotton modal price Rs 7,400 per quintal (upward trend)",
     "confidence": 0.88,
     "needs_expert_review": false,
     "data": {
@@ -60,11 +60,11 @@
   },
   {
     "agent": "advisory",
-    "prediction": "Apply copper-based fungicide and maintain recommended irrigation schedule.",
+    "prediction": "Your cotton is in the flowering stage. Yellow spots can be a fungal leaf spot. Avoid overhead irrigation and consider an expert check.",
     "confidence": 0.90,
     "needs_expert_review": false,
     "data": {
-      "advice_text": "Apply copper-based fungicide and maintain recommended irrigation schedule."
+      "advice_text": "Your cotton is in the flowering stage. Yellow spots can be a fungal leaf spot. Avoid overhead irrigation and consider an expert check."
     }
   }
 ]

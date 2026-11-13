@@ -1,49 +1,68 @@
 ﻿{
-  "transcript": "à°¨à°¾ à°ªà°¤à±à°¤à°¿ à°šà±‡à°¨à±à°²à±‹ à°†à°•à±à°²à± à°ªà°¸à±à°ªà± à°°à°‚à°—à±à°²à±‹à°•à°¿ à°®à°¾à°°à±à°¤à±à°¨à±à°¨à°¾à°¯à°¿",
-  "reply_text": "à°®à±€ à°ªà°¤à±à°¤à°¿ à²¬à³†à²³à³†à²¯à²²à³à²²à²¿ à°¬à°¾à°•à±à°Ÿà±€à°°à°¿à°¯à°²à± à°†à°•à± à°®à°šà±à°šà°² à°µà±à°¯à°¾à°§à°¿ à°²à°•à±à°·à°£à°¾à°²à± à°•à°¨à°¿à°ªà°¿à°¸à±à°¤à±à°¨à±à°¨à°¾à°¯à°¿. à°•à°¾à°ªà°°à± à°†à°•à±à°¸à±€à°•à±à°²à±‹à°°à±ˆà°¡à± 3 à°—à±à°°à°¾/à°²à±€ à°¨à±€à°Ÿà°¿à°•à°¿ à°•à°²à°¿à°ªà°¿ à°ªà°¿à°šà°¿à°•à°¾à°°à±€ à°šà±‡à°¯à°‚à°¡à°¿.",
+  "transcript": "My cotton leaves are turning yellow.",
+  "reply_text": "Your cotton is in the flowering stage. Yellow spots can be a fungal leaf spot. Avoid overhead irrigation and consider an expert check.",
   "reply_audio_base64": null,
   "agents": [
     {
       "agent": "disease",
-      "prediction": "Bacterial Blight identified (confidence 58%)",
+      "prediction": "Possible fungal leaf spot on cotton (confidence 58%). An expert should confirm.",
       "confidence": 0.58,
       "needs_expert_review": true,
-      "data": { "label": "bacterial_blight" }
+      "data": { "label": "Fungal leaf spot" }
     },
     {
       "agent": "weather",
-      "prediction": "Temp 32Â°C, Rain 12mm in next 48h",
+      "prediction": "Temperature 32 C, humidity 75%, 12 mm rain expected in the next 48 hours.",
       "confidence": 0.95,
       "needs_expert_review": false,
-      "data": { "temp_c": 32, "humidity": 75 }
+      "data": {
+        "temp": 32,
+        "humidity": 75,
+        "rainfall_mm": 12,
+        "risk_alert": "High humidity can favor leaf spot"
+      }
     },
     {
       "agent": "irrigation",
-      "prediction": "Irrigation net requirement: 3.5 mm/day",
+      "prediction": "Irrigation need is about 3.5 mm per day. Avoid overhead watering.",
       "confidence": 0.9,
       "needs_expert_review": false,
-      "data": { "net_mm_day": 3.5 }
+      "data": {
+        "etc_mm_per_day": 3.5,
+        "rainfall_mm": 12,
+        "recommended_mm": 3.5,
+        "advice": "Avoid overhead irrigation while yellow spots are present."
+      }
     },
     {
       "agent": "yield",
-      "prediction": "Expected yield: 22.4 q/ha",
+      "prediction": "Expected yield is about 2.2 tonnes per hectare if the crop stays healthy.",
       "confidence": 0.82,
       "needs_expert_review": false,
-      "data": { "estimated_yield_q_ha": 22.4 }
+      "data": {
+        "predicted_tonnes_per_ha": 2.2,
+        "historical_avg": 2.1
+      }
     },
     {
       "agent": "market",
-      "prediction": "Nizamabad Cotton Mandi: â‚¹7,250/q (+3.2%)",
+      "prediction": "Nizamabad cotton mandi modal price is Rs 7,250 per quintal, up 3.2%.",
       "confidence": 0.88,
       "needs_expert_review": false,
-      "data": { "modal_price": 7250 }
+      "data": {
+        "latest_modal_price": 7250,
+        "trend": "up",
+        "nearby_markets": ["Nizamabad Mandi", "Kamareddy Market"]
+      }
     },
     {
       "agent": "advisory",
-      "prediction": "Integrated recommendation provided",
+      "prediction": "Your cotton is in the flowering stage. Yellow spots can be a fungal leaf spot. Avoid overhead irrigation and consider an expert check.",
       "confidence": 0.85,
       "needs_expert_review": true,
-      "data": {}
+      "data": {
+        "advice_text": "Your cotton is in the flowering stage. Yellow spots can be a fungal leaf spot. Avoid overhead irrigation and consider an expert check."
+      }
     }
   ]
 }
